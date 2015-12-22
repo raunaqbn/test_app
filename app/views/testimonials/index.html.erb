@@ -1,1 +1,22 @@
 <h1>Testimonials</h1>
+<p>
+  <%= link_to "Add new testimonial", new_testimonial_path %>    
+</p>
+
+<% @testimonials.each do |testimonial| %>
+<h2>
+    <%= testimonial.title %>
+</h2>
+<p style="font-style:italic;">
+    <%= testimonial.description %>
+</p>
+<p style="font-style:italic;">~<%= testimonial.username %></p>
+<p>
+    <%= link_to "Edit", edit_testimonial_path(testimonial.id) %>
+    <%= link_to "Show", testimonial_path(testimonial) %>
+    
+</p>
+
+<% end %>
+
+<p><%= link_to "Home", root_path %></p>

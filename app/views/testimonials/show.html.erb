@@ -1,8 +1,11 @@
 <h2> Your testimonial</h2>
 <h2>
     <%= @testimonial.title %>
-<h2>
+</h2>
 <p style="font-style:italic;">
     <%= @testimonial.description %>
 </p>
-<p><%= @testimonial.username %></p>
+<p>~<%= @testimonial.username %></p>
+<p><%= link_to "Edit", edit_testimonial_path(@testimonial) %></p>
+<p><%= link_to "Back to Testimonials", testimonials_path %></p>
+<p><%= link_to "Home", root_path %></p>
