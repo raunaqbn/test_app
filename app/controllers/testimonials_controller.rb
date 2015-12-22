@@ -5,8 +5,16 @@ class TestimonialsController < ApplicationController
   def create
       #render plain: params{:testimonial}.inspect
       @testimonial = Testimonial.new(testimonial_params)
-      @testimonial.save
-      redirect_to testimonial_show(@testimonial)
+      if @testimonial.save
+        flash[:notice] = "Testimonial was successfully saved/posted"
+        redirect_to testimonial_path(@testimonial)
+      else
+          render 'new'
+      end
+          
+  end
+  def show
+      
   end
 
   private
