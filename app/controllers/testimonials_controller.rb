@@ -14,7 +14,7 @@ class TestimonialsController < ApplicationController
           
   end
   def show
-      
+      @testimonial = Testimonial.find(params[:id])
   end
 
   private
