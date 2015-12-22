@@ -11,13 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221211624) do
+ActiveRecord::Schema.define(version: 20151221230956) do
 
-  create_table "testimonials", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "testimonials" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end
