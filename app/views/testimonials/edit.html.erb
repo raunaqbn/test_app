@@ -1,0 +1,36 @@
+<h1>Edit your testimonials</h1>
+
+
+<% if @testimonial.errors.any? %>
+  <ul>
+    <% @testimonial.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @testimonial do |f| %>
+  <p>
+      <%= f.label :title %> </br>
+      <%=f.text_field :title %>
+  </p>
+
+  <p>
+      <%= f.label :username %> </br>
+      <%= f.text_field :username %>
+  </p>
+  
+  <p>
+      <%= f.label :email %></br>
+      <%= f.text_field :email %>
+  </p>
+  <p>
+      <%= f.label :description %></br>
+      <%= f.text_area :description %>
+  </p>
+  <p>
+      <%= f.submit %>
+  </p>
+
+
+<% end %>

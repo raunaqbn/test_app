@@ -17,6 +17,19 @@ class TestimonialsController < ApplicationController
       @testimonial = Testimonial.find(params[:id])
   end
 
+  def edit
+      @testimonial = Testimonial.find(params[:id])    
+  end
+  
+  def update
+      @testimonial = Testimonial.find(params[:id])
+      if @testimonial.update(testimonial_params)
+          flash[:notice] = "Testimonial was successfully updated"
+          redirect_to testimonial_path(@testimonial)
+      else
+          render 'edit'
+      end
+  end
   private
     def testimonial_params
       params.require(:testimonial).permit(:title, :username, :email, :description)
