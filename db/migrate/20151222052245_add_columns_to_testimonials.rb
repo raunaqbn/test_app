@@ -4,6 +4,6 @@ class AddColumnsToTestimonials < ActiveRecord::Migration
     add_column :testimonials, :created_at, :datetime
     add_column :testimonials, :updated_at, :datetime
     add_column :testimonials, :username, :text
-    add_column :testimonials, :email, :email_address
+    add_column :testimonials, :email, :string
   end
 end
