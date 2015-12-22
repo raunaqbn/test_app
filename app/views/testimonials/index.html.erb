@@ -14,6 +14,7 @@
 <p>
     <%= link_to "Edit", edit_testimonial_path(testimonial) %>
     <%= link_to "Show", testimonial_path(testimonial) %>
+    <%= link_to "Delete", testimonial_path(testimonial), method: :delete, data: {confirm: "Are you sure?"} %>
     
 </p>
 

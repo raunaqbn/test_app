@@ -34,6 +34,17 @@ class TestimonialsController < ApplicationController
           render 'edit'
       end
   end
+  def destroy
+     @testimonial = Testimonial.find(params[:id]) 
+     if @testimonial.destroy
+         flash[:notice] = "Your testimonial was successfully delted"
+         redirect_to testimonials_path
+     else
+         flash[:notice] = "Could not delete testimonial"
+         render 'show'
+     end
+     
+  end
   private
     def testimonial_params
       params.require(:testimonial).permit(:title, :username, :email, :description)
