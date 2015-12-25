@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222052245) do
+ActiveRecord::Schema.define(version: 20151225002147) do
 
   create_table "testimonials", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20151222052245) do
     t.datetime "updated_at"
     t.text     "username"
     t.string   "email"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "privelige"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
