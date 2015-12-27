@@ -9,6 +9,7 @@ class TestimonialsController < ApplicationController
   def create
       #render plain: params{:testimonial}.inspect
       @testimonial = Testimonial.new(testimonial_params)
+      @testimonial.user = User.first
       if @testimonial.save
         flash[:success] = "Testimonial was successfully saved/posted"
         redirect_to testimonial_path(@testimonial)
@@ -47,7 +48,7 @@ class TestimonialsController < ApplicationController
   end
   private
     def testimonial_params
-      params.require(:testimonial).permit(:title, :username, :email, :description)
+      params.require(:testimonial).permit(:title, :description)
     end
 end
 

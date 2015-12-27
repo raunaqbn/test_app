@@ -10,6 +10,10 @@
         </div>
         <div class="testimonial-body">
         <%= truncate(testimonial.description, length: 100) %>
+        <div class="username">
+        <small>~<%= if testimonial.user then testimonial.user.username  else "Patient" end %>,
+                <%= time_ago_in_words(testimonial.created_at)%> ago</small>
+          </div>
         </div>
         <div class="testimonial-actions">
         <%= link_to "Edit", edit_testimonial_path(testimonial), class: "btn btn-xs btn-primary" %>
