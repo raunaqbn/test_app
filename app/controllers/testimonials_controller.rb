@@ -1,6 +1,6 @@
 class TestimonialsController < ApplicationController
   def index
-     @testimonials = Testimonial.all
+    @testimonials = Testimonial.paginate(page: params[:page], per_page: 5)
   end
   
   def new
