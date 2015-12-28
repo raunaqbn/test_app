@@ -1,4 +1,9 @@
 class TestimonialsController < ApplicationController
+  
+  before_action :set_testimonial, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  
   def index
     @testimonials = Testimonial.paginate(page: params[:page], per_page: 5)
   end
@@ -19,15 +24,12 @@ class TestimonialsController < ApplicationController
           
   end
   def show
-      @testimonial = Testimonial.find(params[:id])
   end
 
   def edit
-      @testimonial = Testimonial.find(params[:id])    
   end
   
   def update
-      @testimonial = Testimonial.find(params[:id])
       if @testimonial.update(testimonial_params)
           flash[:success] = "Testimonial was successfully updated"
           redirect_to testimonial_path(@testimonial)
@@ -36,7 +38,6 @@ class TestimonialsController < ApplicationController
       end
   end
   def destroy
-     @testimonial = Testimonial.find(params[:id]) 
      if @testimonial.destroy
          flash[:success] = "Your testimonial was successfully delted"
          redirect_to testimonials_path
@@ -44,8 +45,12 @@ class TestimonialsController < ApplicationController
          flash[:warning] = "Could not delete testimonial"
          render 'show'
      end
-     
   end
+  
+  def set_article
+    @testimonial = Testimonial.find(params[:id])
+  end
+
   private
     def testimonial_params
       params.require(:testimonial).permit(:title, :description)
