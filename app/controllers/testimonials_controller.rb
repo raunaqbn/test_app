@@ -47,7 +47,7 @@ class TestimonialsController < ApplicationController
      end
   end
   
-  def set_article
+  def set_testimonial
     @testimonial = Testimonial.find(params[:id])
   end
 

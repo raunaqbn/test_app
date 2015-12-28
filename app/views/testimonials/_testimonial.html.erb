@@ -13,7 +13,7 @@
                 <%= time_ago_in_words(testimonial.created_at)%> ago</small>
           </div>
         </div>
-        <% if logged_in? && current_user == testimonial.user %>
+        <% if logged_in? && (current_user == testimonial.user || current_user.admin?) %>
         <div class="testimonial-actions">
         <%= link_to "Edit", edit_testimonial_path(testimonial), class: "btn btn-xs btn-primary" %>
         <%= link_to "Delete", testimonial_path(testimonial), method: :delete,
