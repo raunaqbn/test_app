@@ -14,7 +14,7 @@ class TestimonialsController < ApplicationController
   def create
       #render plain: params{:testimonial}.inspect
       @testimonial = Testimonial.new(testimonial_params)
-      @testimonial.user = User.first
+      @testimonial.user = current_user
       if @testimonial.save
         flash[:success] = "Testimonial was successfully saved/posted"
         redirect_to testimonial_path(@testimonial)
