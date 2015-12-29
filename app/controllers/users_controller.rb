@@ -18,11 +18,11 @@ class UsersController < ApplicationController
      end
    end
    def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    flash[:danger] = "User and all testimonials created by user have been deleted"
-    redirect_to users_path
-  end
+     @user = User.find(params[:id])
+     @user.destroy
+     flash[:danger] = "User and all testimonials created by user have been deleted"
+     redirect_to users_path
+   end
    
   def edit
 
